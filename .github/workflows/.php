@@ -1,0 +1,15 @@
+name: CI TechFix
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Install Dependencies
+        run: composer install
+      - name: Run Tests
+        run: ./vendor/bin/phpunit tests
