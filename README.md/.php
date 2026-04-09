@@ -1,13 +1,16 @@
 # TechFix — Gerenciador de Assistência Técnica
 
-## 🎯 Problema Real
-Pequenas assistências técnicas de hardware muitas vezes utilizam papel ou planilhas que não permitem um rastreio eficiente do status de manutenção, gerando confusão e atrasos para o cliente final.
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
-## 🛠️ Solução
-Uma aplicação web simples em PHP e SQLite para registrar a entrada de equipamentos, detalhar o defeito e acompanhar o status da manutenção de forma organizada.
+## 🎯 Sobre o Projeto
+Este projeto resolve a dor de pequenas assistências técnicas que precisam organizar a entrada de hardwares e o status de manutenção.
 
 ## 🚀 Como Executar
-1. Certifique-se de ter o **PHP 8.0+** e o **Composer** instalados.
-2. Na raiz do projeto, instale as dependências:
-   ```bash
-   composer install
+1. Instale as dependências: `composer install`
+2. Inicie o servidor: `php -S localhost:8000 -t src`
+3. Acesse: `http://localhost:8000`
+
+## 🧪 Testes
+- Execute: `./vendor/bin/phpunit tests`
