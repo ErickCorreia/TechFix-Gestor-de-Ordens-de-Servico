@@ -26,3 +26,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
+<script>
+function buscarEndereco() {
+    let cep = document.getElementById('cep').value;
+    
+    if (cep.length === 8) { // Verifica se o CEP tem 8 dígitos
+        fetch('buscar_cep_ajax.php?cep=' + cep)
+            .then(response => response.json())
+            .then(dados => {
+                if (!dados.erro) {
+                    document.getElementById('rua').value = dados.logradouro;
+                    document.getElementById('bairro').value = dados.bairro;
+                    document.getElementById('cidade').value = dados.localidade;
+                } else {
+                    alert("CEP não encontrado!");
+                }
+            })
+            .catch(error => console.error('Erro ao buscar CEP:', error));
+    }
+}
+</script>
