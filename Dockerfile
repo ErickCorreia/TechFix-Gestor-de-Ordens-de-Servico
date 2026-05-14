@@ -14,6 +14,11 @@ RUN a2enmod rewrite
 # Copia os arquivos do projeto para dentro do servidor
 COPY . /var/www/html/
 
+# Muda a pasta raiz do Apache para a pasta 'src' do seu projeto
+ENV APACHE_DOCUMENT_ROOT /var/www/html/src
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
 # Instala o Composer para gerenciar as dependências do seu projeto [2]
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-interaction --optimize-autoloader
